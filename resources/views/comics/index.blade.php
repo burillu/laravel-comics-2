@@ -6,7 +6,7 @@
 
     <div class="bg-black">
         <div class="container">
-            <div class="row">
+            <div class="row gy-3 py-4">
                 @foreach ($comics as $comic)
                     <div class="col-12 col-md-4 col-lg-3">
                         <div class="card">

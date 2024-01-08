@@ -24,14 +24,14 @@ body {
     color: $my-primary;
 }
 
-.my-text-condensed {
-    font-family: 'Open Sans Condensed';
-}
+// .my-text-condensed {
+//     font-family: 'Open Sans Condensed';
+// }
 
 .my-img-container img {
     width: 100%;
     height: calc(100vw/5);
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .logo-img {
@@ -70,7 +70,7 @@ nav .active {
 }
 
 #hero {
-    height: 90vh;
+    height: 80vh;
     overflow: hidden;
 
     img {
