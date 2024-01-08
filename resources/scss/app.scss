@@ -1,0 +1,80 @@
+@use './partials/variables' as *;
+
+$fa-font-path: "../webfonts" !default;
+
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+
+@import '~bootstrap/scss/bootstrap';
+
+
+
+body {
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+.my-primary {
+    background-color: $my-primary;
+}
+
+.my-text-primary {
+    color: $my-primary;
+}
+
+.my-text-condensed {
+    font-family: 'Open Sans Condensed';
+}
+
+.my-img-container img {
+    width: 100%;
+    height: calc(100vw/5);
+    object-fit: contain;
+}
+
+.logo-img {
+    width: 50px;
+}
+
+
+.my-bg-secondary {
+    background-color: $my-secondary;
+}
+
+.my-bg-dc {
+    //height: 200px;
+    background-image: url('/resources/img/dc-logo-bg.png');
+    background-repeat: no-repeat;
+    background-position-y: 40%;
+}
+
+.my-bg-footer {
+
+    background-image: url('/resources/img/footer-bg.jpg');
+    background-size: 100%;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+nav .active {
+    border-bottom: 3px solid $my-primary;
+}
+
+#hero {
+    height: 90vh;
+    overflow: hidden;
+
+    img {
+        object-fit: cover;
+        width: 100%
+    }
+}
