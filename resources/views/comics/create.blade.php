@@ -4,21 +4,34 @@
 
 @section('content')
 
-    <div class="bg-black">
+    <div class="bg-white">
         <div class="container">
-            <form action="{{ route('comics.store') }}" method="POST">
-                {{-- token --}}
-                @csrf
-                <input type="text" name="title" class="form-control" placeholder="title">
-                <input type="text" name="description" class="form-control" placeholder="description">
-                <input type="text" name="thumb" class="form-control" placeholder="thumb">
+            <div class="row justify-content-center">
+                <div class="col-8">
+                    <h2 class="text-center"> Add new Comic:</h2>
+                    <form action="{{ route('comics.store') }}" method="POST">
+                        {{-- token --}}
+                        @csrf
+                        <label for="title">Title:</label>
+                        <input id="title" type="text" name="title" class="mb-3 form-control">
+                        <label for="description">Description:</label>
+                        <input id="description" type="text" name="description" class="mb-3 form-control">
+                        <label for="thumb">Image Link:</label>
+                        <input id="thumb" type="text" name="thumb" class="mb-3 form-control">
+                        <label for="price">Price:</label>
+                        <input id="price" type="text" name="price" class="mb-3 form-control">
+                        <label for="sale_date">Sale Date:</label>
+                        <input id="sale_date" type="text" name="sale_date" class="mb-3 form-control">
+                        <label for="series">Serie:</label>
+                        <input id="series" type="text" name="series" class="mb-3 form-control">
+                        <label for="type">Type:</label>
+                        <input id="type" type="text" name="type" class="mb-3 form-control">
 
-                <input type="text" name="price" class="form-control" placeholder="price">
-                <input type="text" name="sale_date" class="form-control" placeholder="sale_date">
-                <input type="text" name="series" class="form-control" placeholder="series">
-                <input type="text" name="type" class="form-control" placeholder="type">
-                <button type="submit" class="btn btn-success">Invia</button>
-            </form>
+                        <button type="submit" class="btn btn-success"><i class="fa-solid fa-plus"></i></button>
+                    </form>
+                </div>
+            </div>
+
         </div>
 
 
