@@ -41,7 +41,15 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //tutti i dati possono essere validati lato back end con la funzione:
+        // $request->validate([
+        //     "title"=>'required | min:5',
+        //     'descriprion'=> 'require|max:...',
+        //     'price'=> 'require',
+        //     'sale_date'=> 'require',
+        //     'series'=> 'require',
+        // ]);
+
         $form_data = $request->all();
         $new_comic = new Comic();
         $new_comic->title = $form_data["title"];
@@ -72,11 +80,11 @@ class ComicController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Comic  $comic
-     * @return \Illuminate\Http\Response
+     * 
      */
     public function edit(Comic $comic)
     {
-        //
+        return view('comics.edit', compact('comic'));
     }
 
     /**
@@ -88,6 +96,8 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
+        //all'interno bisogna prendere i valori dal form 
+        //aggiornare i parametri dell oggetto comic
         //
     }
 
@@ -99,6 +109,7 @@ class ComicController extends Controller
      */
     public function destroy(Comic $comic)
     {
-        //
+        // $comic->delete();
+        //return to_route('comics.index')->with("Il fumetto $comic->title è stato cancellato");
     }
 }
