@@ -23,7 +23,10 @@
                     <span class="fw-lighter fst-italic ">Sale date: {{ $comic->sale_date }} | Type : {{ $comic->type }}
                     </span>
                     <p class="mb-3 mt-3">{{ $comic->description }}</p>
-                    <div class="fw-bold">Price: {{ $comic->price }} </div>
+                    <div class="mb-3 fw-bold">Price: {{ $comic->price }} </div>
+
+                    <button class="btn btn-primary"><a href="{{ route('comics.edit', $comic->id) }}"> Edit
+                            Comic</a></button>
 
 
                 </div>
