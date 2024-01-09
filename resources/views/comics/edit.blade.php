@@ -20,13 +20,14 @@
                         <input id="title" type="text" value="{{ old('title', $comic->title) }}" name="title"
                             class="mb-3 form-control" required>
                         <label for="description">Description:</label>
-                        <input id="description" type="text" value="{{ old('description', $comic->description) }}"
-                            name="description" class="mb-3 form-control" required>
+                        <textarea id="description" type="text" name="description" class="mb-3 form-control" required>
+                            {{ old('description', $comic->description) }}
+                         </textarea>
                         <label for="thumb">Image Link:</label>
                         <input id="thumb" type="text" value="{{ old('thumb', $comic->thumb) }}" name="thumb"
                             class="mb-3 form-control" required>
                         <label for="price">Price:</label>
-                        <input id="price" type="text" value="{{ old('price', $comic->price) }}" pricename="price"
+                        <input id="price" type="text" value="{{ old('price', $comic->price) }}" name="price"
                             class="mb-3 form-control" required>
                         <label for="sale_date">Sale Date:</label>
                         <input id="sale_date" type="text" value="{{ old('sale_date', $comic->sale_date) }}"
