@@ -18,22 +18,22 @@
 
                         <label for="title">Title:</label>
                         <input id="title" type="text" value="{{ old('title', $comic->title) }}" name="title"
-                            class="mb-3 form-control">
+                            class="mb-3 form-control" required>
                         <label for="description">Description:</label>
                         <input id="description" type="text" value="{{ old('description', $comic->description) }}"
-                            name="description" class="mb-3 form-control">
+                            name="description" class="mb-3 form-control" required>
                         <label for="thumb">Image Link:</label>
                         <input id="thumb" type="text" value="{{ old('thumb', $comic->thumb) }}" name="thumb"
-                            class="mb-3 form-control">
+                            class="mb-3 form-control" required>
                         <label for="price">Price:</label>
                         <input id="price" type="text" value="{{ old('price', $comic->price) }}" pricename="price"
-                            class="mb-3 form-control">
+                            class="mb-3 form-control" required>
                         <label for="sale_date">Sale Date:</label>
                         <input id="sale_date" type="text" value="{{ old('sale_date', $comic->sale_date) }}"
-                            name="sale_date" class="mb-3 form-control">
+                            name="sale_date" class="mb-3 form-control" required>
                         <label for="series">Serie:</label>
                         <input id="series" type="text" value="{{ old('series', $comic->series) }}" name="series"
-                            class="mb-3 form-control">
+                            class="mb-3 form-control" required>
                         <label for="type">Type:</label>
                         <input id="type" type="text" value="{{ old('type', $comic->type) }}" name="type"
                             class="mb-3 form-control">
