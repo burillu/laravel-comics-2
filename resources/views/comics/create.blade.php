@@ -13,19 +13,60 @@
                         {{-- token --}}
                         @csrf
                         <label for="title">Title:</label>
-                        <input id="title" type="text" name="title" class="mb-3 form-control" required>
+                        <input id="title" value="{{ old('title') }}" type="text" name="title"
+                            class="mb-3 form-control @error('title') is-invalid @enderror">
+                        @error('title')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                         <label for="description">Description:</label>
-                        <input id="description" type="text" name="description" class="mb-3 form-control" required>
+                        <textarea id="description" type="text" name="description"
+                            class="mb-3 form-control @error('description') is-invalid @enderror" required></textarea>
+                        @error('description')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                         <label for="thumb">Image Link:</label>
-                        <input id="thumb" type="text" name="thumb" class="mb-3 form-control" required>
+                        <input id="thumb" type="url" name="thumb" class="mb-3 form-control " required>
+                        @error('thumb')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                         <label for="price">Price:</label>
-                        <input id="price" type="text" name="price" class="mb-3 form-control" required>
+                        <input id="price" type="text" name="price"
+                            class="mb-3 form-control @error('price') is-invalid @enderror" required>
+                        @error('price')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                         <label for="sale_date">Sale Date:</label>
-                        <input id="sale_date" type="text" name="sale_date" class="mb-3 form-control" required>
+                        <input id="sale_date" type="text" value="2022-12-12" name="sale_date"
+                            class="mb-3 form-control @error('sale_date') is-invalid @enderror" required>
+                        @error('sale_date')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                         <label for="series">Serie:</label>
-                        <input id="series" type="text" name="series" class="mb-3 form-control" required>
+                        <input id="series" type="text" name="series"
+                            class="mb-3 form-control @error('series') is-invalid @enderror" required>
+                        @error('series')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                         <label for="type">Type:</label>
-                        <input id="type" type="text" name="type" class="mb-3 form-control" required>
+                        <input id="type" type="text" name="type"
+                            class="mb-3 form-control @error('type') is-invalid @enderror" required>
+                        @error('type')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
 
                         <button type="submit" class="btn btn-success"><i class="fa-solid fa-plus"></i></button>
                     </form>
