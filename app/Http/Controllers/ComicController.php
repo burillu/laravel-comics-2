@@ -42,23 +42,24 @@ class ComicController extends Controller
     public function store(Request $request)
     {
         //tutti i dati possono essere validati lato back end con la funzione:
-        // $request->validate([
-        //     "title"=>'required | min:5',
-        //     'descriprion'=> 'require|max:...',
-        //     'price'=> 'require',
-        //     'sale_date'=> 'require',
-        //     'series'=> 'require',
-        // ]);
+        $request->validate([
+            'title' => 'required | min:3',
+            'price' => 'required | max:20',
+            'sale_date' => 'required',
+            'series' => 'required | max:100',
+            'type' => 'required',
+        ]);
 
         $form_data = $request->all();
         $new_comic = new Comic();
-        $new_comic->title = $form_data["title"];
-        $new_comic->description = $form_data["description"];
-        $new_comic->thumb = $form_data["thumb"];
-        $new_comic->price = $form_data["price"];
-        $new_comic->sale_date = $form_data["sale_date"];
-        $new_comic->series = $form_data["series"];
-        $new_comic->type = $form_data["type"];
+        // $new_comic->title = $form_data["title"];
+        // $new_comic->description = $form_data["description"];
+        // $new_comic->thumb = $form_data["thumb"];
+        // $new_comic->price = $form_data["price"];
+        // $new_comic->sale_date = $form_data["sale_date"];
+        // $new_comic->series = $form_data["series"];
+        // $new_comic->type = $form_data["type"];
+        $new_comic->fill($form_data);
         $new_comic->save();
         return to_route("comics.index");
     }
@@ -97,7 +98,7 @@ class ComicController extends Controller
     public function update(Request $request, Comic $comic)
     {
         //all'interno bisogna prendere i valori dal form 
-        //aggiornare i parametri dell oggetto comic
+
         $form_data = $request->all();
 
         $comic->title = $form_data["title"];
@@ -107,6 +108,7 @@ class ComicController extends Controller
         $comic->sale_date = $form_data["sale_date"];
         $comic->series = $form_data["series"];
         $comic->type = $form_data["type"];
+        //aggiornare i parametri dell oggetto comic
         $comic->update();
         return to_route("comics.show", $comic->id);
 
