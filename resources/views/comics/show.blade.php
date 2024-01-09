@@ -27,6 +27,13 @@
 
                     <button class="btn btn-primary"><a href="{{ route('comics.edit', $comic->id) }}"> Edit
                             Comic</a></button>
+                    <form action="{{ route('comics.destroy', $comic->id) }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger"> <i class="fa-solid fa-trash-can"></i>
+                        </button>
+
+                    </form>
 
 
                 </div>
