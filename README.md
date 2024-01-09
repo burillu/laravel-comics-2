@@ -116,5 +116,10 @@ Iniziate a definire le prime operazioni CRUD con le relative view dove necessari
 - show()
 - create()
 - store() (solo dump dei dati)
+
+### Milestone 3
+Completare le operazioni CRUD.
+
 ### Bonus:
-Procedere con il salvataggio dei dati sul db
+- Procedere con il salvataggio dei dati sul db
+- Aggiungere validazioni e messaggi di errore e alla cancellazione messaggio di conferma all'utente
