@@ -100,9 +100,14 @@ php artisan make:controller NomeController
 
 #creo model
 php artisan make:model Nome
+# potrei creare il model con aggiunta di risorse control, migration e seeder e form request per le validazioni col seguente comando:
+php artisan make:model Nome -rcms --request
 
 # creo le views relative
 
+#creo form request per validazione:
+
+php artisan make:request StoreNomeModelRequest
 
 ```
 ## Descrizione:
@@ -120,6 +125,16 @@ Iniziate a definire le prime operazioni CRUD con le relative view dove necessari
 ### Milestone 3
 Completare le operazioni CRUD.
 
+### Milestone 4
+
+Sempre lavorando sulla repo di ieri, potete aggiungere le validazioni in modo da rendere più stabile il vostro gestionale di fumetti. 
+- Validare gli input ricevuti in fase di creazione e modifica, rispondendo con errori chiari e in italiano.
+
+
+
 ### Bonus:
 - Procedere con il salvataggio dei dati sul db
 - Aggiungere validazioni e messaggi di errore e alla cancellazione messaggio di conferma all'utente
+- utilizzare le Request personalizzate per validare i dati
+- aggiungere conferma alla cancellazione degli elementi
+- aggiungere un filtro a vostra scelta per i dati dei comics
