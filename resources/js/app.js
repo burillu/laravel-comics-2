@@ -21,14 +21,17 @@ buttons.forEach((button) => {
         //mostro la modale usando il metodo show
         myModal.show();
         //prendo la modale dove voglio cambiare il titolo
-
+        const spanTitle = modal.querySelector('#model-item-title');
         //inserisco il titolo all'interno della modale
-
+        spanTitle.innerHTML = itemTitle;
         //prendo dalla modale il bottone di conferma
-
+        const confirmBtn = modal.querySelector('button.btn-primary');
         //aggiungo il listener del click nel bottone 
+        confirmBtn.addEventListener('click', (event) => {
+            //eseguo il submit del form all'evento click del bottone  di conferma
+            button.parentElement.submit();
+        })
 
-        //eseguo il submit del form all'evento click del bottone  di conferma
 
 
     })
