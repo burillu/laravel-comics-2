@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Comic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\StoreComicRequest;
+use App\Http\Requests\UpdateComicRequest;
+
 
 //use Illuminate\View\View;
 
@@ -15,9 +19,10 @@ class ComicController extends Controller
      *
      * @return \Illuminate\View\View;
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        //con una select che fa il filtro della ricerca
+        //$search = 
         $comics = Comic::all();
         return view("comics.index", compact("comics"));
     }
@@ -39,29 +44,15 @@ class ComicController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * 
      */
-    public function store(Request $request)
+    public function store(StoreComicRequest $request)
     {
-        //tutti i dati possono essere validati lato back end con la funzione:
-        $request->validate([
-            'title' => 'required | min:3',
-            'price' => 'required | max:20',
-            'sale_date' => 'required',
-            'series' => 'required | max:100',
-            'type' => 'required',
-        ]);
-
-        $form_data = $request->all();
-        $new_comic = new Comic();
-        // $new_comic->title = $form_data["title"];
-        // $new_comic->description = $form_data["description"];
-        // $new_comic->thumb = $form_data["thumb"];
-        // $new_comic->price = $form_data["price"];
-        // $new_comic->sale_date = $form_data["sale_date"];
-        // $new_comic->series = $form_data["series"];
-        // $new_comic->type = $form_data["type"];
-        $new_comic->fill($form_data);
-        $new_comic->save();
-        return to_route("comics.index");
+        //dd($request->all());
+        //recupero i dati validati dalla request
+        $form_data = $request->validated();
+        //creo un nuovo comic col metodo astratto create, passando come parametri $form_data
+        $new_comic = Comic::create($form_data);
+        // reindirizzo alla pagina show per mostrare il comic appena creato
+        return to_route("comics.show", $new_comic->id);
     }
 
     /**
@@ -95,11 +86,11 @@ class ComicController extends Controller
      * @param  \App\Models\Comic  $comic
      * 
      */
-    public function update(Request $request, Comic $comic)
+    public function update(UpdateComicRequest $request, Comic $comic)
     {
         //all'interno bisogna prendere i valori dal form 
 
-        $form_data = $request->all();
+        $form_data = $request->validated();
 
         $comic->title = $form_data["title"];
         $comic->description = $form_data["description"];
@@ -124,5 +115,23 @@ class ComicController extends Controller
     {
         $comic->delete();
         return to_route('comics.index')->with('message', "Il fumetto $comic->title è stato cancellato");
+    }
+    /**
+     * Summary of validation: creo una mia funzione per la validazione, dove imposterò i messaggi di errore personalizzati
+     */
+    private function validation($data)
+    {
+        $validator = Validator::make($data, [
+            'title' => 'required | min:3',
+            'price' => 'required | max:20',
+            'sale_date' => 'required',
+            'series' => 'required | max:100',
+            'type' => 'required',
+        ], [
+            'title.required' => 'Il campo titolo è obbligatorio',
+            'title.min' => 'Il campo titolo deve avere minimo :min caratteri',
+            'price.required' => '',
+        ])->validate();
+        return $validator;
     }
 }
