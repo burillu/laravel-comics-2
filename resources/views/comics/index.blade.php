@@ -10,6 +10,20 @@
                 <div class="alert alert-success">{{ session()->get('message') }}</div>
             @endif
             <div class="row gy-3 py-4">
+                <div class="col-12">
+                    <form action="{{ route('comics.index') }}" method="GET" class="w-50">
+                        <select class="form-select" id="select-filter" name="genre" aria-label="Default select example">
+                            <option selected>All</option>
+                            <option value="comic book">Comic Book</option>
+                            <option value="graphic novel">Graphic Novel</option>
+                            <option value="batman">Batman</option>
+                            <option value="superman">Superman</option>
+                        </select>
+                        <button type="submit" class="btn btn-primary"> Filtra</button>
+                    </form>
+                </div>
+
+
                 @foreach ($comics as $comic)
                     <div class="col-12 col-md-4 col-lg-3">
                         <div class="card">
