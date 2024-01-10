@@ -14,7 +14,7 @@
                         @csrf
                         <label for="title">Title:</label>
                         <input id="title" value="{{ old('title') }}" type="text" name="title"
-                            class="mb-3 form-control @error('title') is-invalid @enderror">
+                            class="mb-3 form-control @error('title') is-invalid @enderror" required>
                         @error('title')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -22,14 +22,15 @@
                         @enderror
                         <label for="description">Description:</label>
                         <textarea id="description" type="text" name="description"
-                            class="mb-3 form-control @error('description') is-invalid @enderror" required></textarea>
+                            class="mb-3 form-control @error('description') is-invalid @enderror"></textarea>
                         @error('description')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
                         @enderror
                         <label for="thumb">Image Link:</label>
-                        <input id="thumb" type="url" name="thumb" class="mb-3 form-control " required>
+                        <input id="thumb" type="url" name="thumb"
+                            class="mb-3 form-control @error('thumb') is-invalid @enderror" required>
                         @error('thumb')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -61,7 +62,7 @@
                         @enderror
                         <label for="type">Type:</label>
                         <input id="type" type="text" name="type"
-                            class="mb-3 form-control @error('type') is-invalid @enderror" required>
+                            class="mb-3 form-control @error('type') is-invalid @enderror">
                         @error('type')
                             <div class="invalid-feedback">
                                 {{ $message }}
