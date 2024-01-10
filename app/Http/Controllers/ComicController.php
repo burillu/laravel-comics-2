@@ -21,9 +21,14 @@ class ComicController extends Controller
      */
     public function index(Request $request)
     {
-        //con una select che fa il filtro della ricerca
-        //$search = 
-        $comics = Comic::all();
+        if (!empty($request->query("genre"))) {
+            //con una select che fa il filtro della ricerca
+            $search = $request->query('genre');
+            //dd($search);
+            $comics = Comic::where('type', 'LIKE', $search . '%')->get();
+        } else {
+            $comics = Comic::all();
+        }
         return view("comics.index", compact("comics"));
     }
 
@@ -92,13 +97,6 @@ class ComicController extends Controller
 
         $form_data = $request->validated();
 
-        // $comic->title = $form_data["title"];
-        // $comic->description = $form_data["description"];
-        // $comic->thumb = $form_data["thumb"];
-        // $comic->price = $form_data["price"];
-        // $comic->sale_date = $form_data["sale_date"];
-        // $comic->series = $form_data["series"];
-        // $comic->type = $form_data["type"];
         //inserisco i dati modificati automaticamente col metodo fill
         $comic->fill($form_data);
         //aggiornare i parametri dell oggetto comic

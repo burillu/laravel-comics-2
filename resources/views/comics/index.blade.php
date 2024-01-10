@@ -11,15 +11,23 @@
             @endif
             <div class="row gy-3 py-4">
                 <div class="col-12">
-                    <form action="{{ route('comics.index') }}" method="GET" class="w-50">
-                        <select class="form-select" id="select-filter" name="genre" aria-label="Default select example">
-                            <option selected>All</option>
-                            <option value="comic book">Comic Book</option>
-                            <option value="graphic novel">Graphic Novel</option>
-                            <option value="batman">Batman</option>
-                            <option value="superman">Superman</option>
-                        </select>
-                        <button type="submit" class="btn btn-primary"> Filtra</button>
+
+                    <form action="{{ route('comics.index') }}" method="GET" class="">
+                        <div class="d-flex justify-content-between">
+                            <h4 class="text-white"> Filtra per tipo:</h4>
+
+                            <select class="form-select w-50 d-inline" id="select-filter" name="genre"
+                                aria-label="Default select example">
+                                <option selected value="">All</option>
+                                <option value="comic">Comic Book</option>
+                                <option value="graphic">Graphic Novel</option>
+                            </select>
+                            <div class="">
+                                <button type="submit" class="btn btn-primary"> Filtra</button>
+                            </div>
+                        </div>
+
+
                     </form>
                 </div>
 
