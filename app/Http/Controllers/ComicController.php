@@ -92,13 +92,15 @@ class ComicController extends Controller
 
         $form_data = $request->validated();
 
-        $comic->title = $form_data["title"];
-        $comic->description = $form_data["description"];
-        $comic->thumb = $form_data["thumb"];
-        $comic->price = $form_data["price"];
-        $comic->sale_date = $form_data["sale_date"];
-        $comic->series = $form_data["series"];
-        $comic->type = $form_data["type"];
+        // $comic->title = $form_data["title"];
+        // $comic->description = $form_data["description"];
+        // $comic->thumb = $form_data["thumb"];
+        // $comic->price = $form_data["price"];
+        // $comic->sale_date = $form_data["sale_date"];
+        // $comic->series = $form_data["series"];
+        // $comic->type = $form_data["type"];
+        //inserisco i dati modificati automaticamente col metodo fill
+        $comic->fill($form_data);
         //aggiornare i parametri dell oggetto comic
         $comic->update();
         return to_route("comics.show", $comic->id);
